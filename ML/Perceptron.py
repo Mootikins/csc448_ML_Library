@@ -1,12 +1,23 @@
 import pandas as pd, numpy as np, matplotlib.pyplot as plt
 
 
+def dot(x, y):
+    """
+    Dot product of two vectors
+
+    :param x List of type for which __mul__ is defined : Vector x
+    :param y List of type for which __mul__ is defined : Vector y
+    """
+    return sum(x_i * y_i for x_i, y_i in zip(x, y))
+
+
 class Perceptron:
     def __init__(self, learning_rate, iterations):
         assert 0 < learning_rate < 1
         self.rate = learning_rate
         self.niter = iterations
         self.errors = []
+        self.weight = []
 
     def fit(self, X, y):
         """
@@ -49,10 +60,10 @@ class Perceptron:
         """
         Calculate net input
         """
-        pass
+        return dot(X, self.weight) + self.rate
 
     def predict(self, X):
         """
         Return class label after unit step
         """
-        pass
+        return np.where(self.net_input(X) >= 0.0, 1, -1)
