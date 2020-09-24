@@ -1,16 +1,6 @@
 import pandas as pd, numpy as np, matplotlib.pyplot as plt
 
 
-def dot(x, y):
-    """
-    Dot product of two vectors
-
-    :param x List of type for which __mul__ is defined : Vector x
-    :param y List of type for which __mul__ is defined : Vector y
-    """
-    return sum(x_i * y_i for x_i, y_i in zip(x, y))
-
-
 class Perceptron:
     def __init__(self, learning_rate, iterations):
         assert 0 < learning_rate < 1
@@ -32,35 +22,44 @@ class Perceptron:
 
         # Number of misclassifications, creates an array
         # to hold the number of misclassifications
+        self.misclassifications = []
 
         # main loop to fit the data to the labels
-
-        # for i in range(self.niter):
+        for _i in range(self.niter):
 
             # set iteration error to zero
+            misclassifified = 0
             # loop over all the objects in X and corresponding y element
-
-            # for xi, target in zip(X, y):
+            for xi, target in zip(X, y):
+                x = np.insert(xi, 0, 1)
+                y = np.dot(self.weights, x.transpose())
+                target = 1.0 if (y > 0) else 0.0
 
                 # calculate the needed (delta_w) update from prev step
-                # delta_w = rate * ( target - prediction current object )
+                delta_w = target - y
 
                 # calculate what the current object will add to the weight
 
                 # set the bias to be the current delta_w
 
                 # increase the iteration error if delta_w != 0
+                if delta_w > 0:
+                    misclassifified += 1
+                    self.weights += (delta_w * x)
 
             # Update the miscalssification array with # of errors in iteration
+            if misclassifified == 0:
+                break
+            else:
+                self.misclassifications.append(misclassifified)
 
-        # return self
-        pass
+        return self
 
     def net_input(self, X):
         """
         Calculate net input
         """
-        return dot(X, self.weights) + self.rate
+        return np.dot(X, self.weights) + self.rate
 
     def predict(self, X):
         """
