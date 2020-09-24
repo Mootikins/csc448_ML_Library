@@ -17,7 +17,6 @@ class Perceptron:
         self.rate = learning_rate
         self.niter = iterations
         self.errors = []
-        self.weight = []
 
     def fit(self, X, y):
         """
@@ -29,6 +28,7 @@ class Perceptron:
 
         # weights: create a weights array of right size and
         # initialize elements to zero
+        self.weights = [0] * len(y)
 
         # Number of misclassifications, creates an array
         # to hold the number of misclassifications
@@ -60,7 +60,7 @@ class Perceptron:
         """
         Calculate net input
         """
-        return dot(X, self.weight) + self.rate
+        return dot(X, self.weights) + self.rate
 
     def predict(self, X):
         """
