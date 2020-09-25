@@ -5,9 +5,10 @@ import numpy as np
 import pandas as pd
 
 from ML.Perceptron import Perceptron
+from ML.Perceptron import plot_decision_regions
 
 
-def load_data(feature_1, feature_2, species_1, species_2):
+def load_data(features, species_1, species_2):
     """
     Loads data from the given csv file and allows for choice of the two
     features and two species for use in a perceptron. The arguments feature_1
@@ -17,10 +18,9 @@ def load_data(feature_1, feature_2, species_1, species_2):
         2 : Petal Length
         3 : Petal Width
 
-    :param feature_1 Integer: 0-3, to define which feature to use; must be
-                              different from feature_2
-    :param feature_2 Integer: 0-3, to define which feature to use; must be
-                              different from feature_1
+    :param features List of Integers: Unique list of integers in range 0-3 to
+                                      define which feature to use; mapping is
+                                      shown above
     :param species_1 String: String defining the first species of flower to use;
                            must be one of ['setosa', 'versicolor', 'virginica']
                            and different from species_2
@@ -30,10 +30,8 @@ def load_data(feature_1, feature_2, species_1, species_2):
     """
 
     if (
-        3 < feature_1 < 0 or \
-        3 < feature_2 < 0 or \
-        feature_1 is feature_2 or \
-        species_1 is species_2 or \
+        all(3 < feature < 0 for feature in features) or \
+        len(features) != len(set(features)) or \
         species_1 not in ['setosa', 'versicolor', 'virginica'] or \
         species_2 not in ['setosa', 'versicolor', 'virginica']
     ):
@@ -50,17 +48,22 @@ def load_data(feature_1, feature_2, species_1, species_2):
         'virginica': data_frame.iloc[100:].values,
     }
 
-    result_data = np.concatenate((row_species_map[species_1], row_species_map[species_2]))
+    result_data = np.concatenate(
+        (row_species_map[species_1], row_species_map[species_2]))
     y = result_data[:, 4]
     y = np.where(y == 'Iris-' + species_1, -1, 1)
 
-    X = result_data[:, [feature_1, feature_2]]
+    X = result_data[:, features]
 
     return (X, y)
 
 
 def show_plot(X, data_1_label, data_2_label, x_label, y_label):
-    plt.scatter(X[:50, 0], X[:50, 1], color='red', marker='o', label=data_1_label)
+    plt.scatter(X[:50, 0],
+                X[:50, 1],
+                color='red',
+                marker='o',
+                label=data_1_label)
 
     plt.scatter(X[50:100, 0],
                 X[50:100, 1],
@@ -75,8 +78,14 @@ def show_plot(X, data_1_label, data_2_label, x_label, y_label):
 
 
 if __name__ == "__main__":
-    # PN = Perceptron(0.1, 10)
-    # feature number 0 is sepal length, feature number 1 is sepal width
-    (X, y) = load_data(feature_1=0, feature_2=2, species_1='setosa', species_2='virginica')
+    PN = Perceptron(0.1, 10)
+    # feature number 0 is sepal length, feature number 2 is petal length
+    (X, y) = load_data([0, 2], species_1='setosa', species_2='virginica')
 
-    show_plot(X, 'setosa', 'virginica', 'sepal length', 'petal length')
+    PN.fit(X, y)
+    print(PN.misclassifications)
+
+    plt = plot_decision_regions(X, y, PN)
+    plt.show()
+
+    # show_plot(X, 'setosa', 'virginica', 'sepal length', 'petal length')
