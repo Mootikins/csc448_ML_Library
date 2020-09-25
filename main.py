@@ -60,10 +60,24 @@ def load_data(features, species_1, species_2):
 
 if __name__ == "__main__":
     PN = Perceptron(0.1, 10)
-    # feature number 0 is sepal length, feature number 3 is petal width
-    (X, y) = load_data([0, 2], species_1='setosa', species_2='virginica')
+
+    # Available species
+    # ['setosa', 'versicolor', 'virginica']
+
+    # Feature numbers
+    # 0 : Sepal Length
+    # 1 : Sepal Width
+    # 2 : Petal Length
+    # 3 : Petal Width
+
+    (X, y) = load_data(
+        [0, 2], # list of features
+        species_1='setosa',
+        species_2='virginica'
+    )
 
     PN.fit(X, y)
+    print(PN.misclassifications)
 
     plt = plot_decision_regions(X, y, PN)
     plt.show()
