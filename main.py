@@ -79,7 +79,7 @@ def show_plot(X, data_1_label, data_2_label, x_label, y_label):
 
 if __name__ == "__main__":
     PN = Perceptron(0.1, 10)
-    # feature number 0 is sepal length, feature number 2 is petal length
+    # feature number 0 is sepal length, feature number 3 is petal width
     (X, y) = load_data([0, 2], species_1='setosa', species_2='virginica')
 
     PN.fit(X, y)
