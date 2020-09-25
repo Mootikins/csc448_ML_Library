@@ -58,34 +58,12 @@ def load_data(features, species_1, species_2):
     return (X, y)
 
 
-def show_plot(X, data_1_label, data_2_label, x_label, y_label):
-    plt.scatter(X[:50, 0],
-                X[:50, 1],
-                color='red',
-                marker='o',
-                label=data_1_label)
-
-    plt.scatter(X[50:100, 0],
-                X[50:100, 1],
-                color='blue',
-                marker='x',
-                label=data_2_label)
-
-    plt.xlabel(x_label)
-    plt.ylabel(y_label)
-    plt.legend(loc='upper left')
-    plt.show()
-
-
 if __name__ == "__main__":
     PN = Perceptron(0.1, 10)
     # feature number 0 is sepal length, feature number 3 is petal width
     (X, y) = load_data([0, 2], species_1='setosa', species_2='virginica')
 
     PN.fit(X, y)
-    print(PN.misclassifications)
 
     plt = plot_decision_regions(X, y, PN)
     plt.show()
-
-    # show_plot(X, 'setosa', 'virginica', 'sepal length', 'petal length')
