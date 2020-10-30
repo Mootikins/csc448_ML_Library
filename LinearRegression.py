@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from ML.LinearRegression import LinearRegression
+from ML.LinearRegression import linear_regression
 
 
 def load_data_iris(indep_feature, dep_feature, species):
@@ -47,5 +47,7 @@ def load_data_iris(indep_feature, dep_feature, species):
 
 if __name__ == "__main__":
     X, y = load_data_iris(0, 1, 'versicolor')
-    weights, bias = LinearRegression(X, y)
+    log_var = []
+    weights, bias = linear_regression(X, y, logging=True, log=log_var)
+    print(log_var[0])
     print(weights, bias)
