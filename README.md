@@ -32,10 +32,15 @@ from ML.Perceptron import Perceptron
 I am not a snake charmer, so I will apologize in advance for possibly not
 following best or common practices.
 
+## The Library Stuff
+
 The library contains the following:
 
-* [Perceptron](ML/Perceptron.py) --- [sample](Perceptron.py)
-* [LinearRegression](ML/LinearRegression.py) --- [sample](LinearRegression.py)
+* [X] [Perceptron](ML/Perceptron.py) --- [sample](Perceptron.py)
+* [X] [Linear Regression](ML/LinearRegression.py) --- [sample](LinearRegression.py)
+* [X] [Decision Stumps](ML/DecisionStump.py) --- [sample](DecisionStump.py)
+* [ ] Another regression model (undecided)
+* [ ] Another low VC-dimension hypothesis class
 
 While the *library* only requires `numpy` and `pandas`, the examples also use
 `matplotlib`, so it is recommended you use a virtual environment or other method
@@ -43,9 +48,8 @@ of your choice to make sure they are available. It should also go without saying
 that you need python 3 installed. What exact version, I am unsure, but I've been
 using 3.8.
 
-## The Library Stuff
-
 ### Perceptron
 
 Under construction. There is a [pandoc](https://pandoc.org/) document included
-that has a fair bit of data [HERE]
+that has a fair bit of info [here](Perceptron.md). It can be compiled in the
+same way as noted in [the LaTeX advisement](#advisement-about-latex)
