@@ -1,4 +1,6 @@
-import pandas as pd, numpy as np, matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 from matplotlib.colors import ListedColormap
 
 
