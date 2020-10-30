@@ -1,7 +1,3 @@
----
-geometry:
-   - margin=0.5in
----
 # Machine Learning: My (Not so) Big Book
 
 This repo serves as a portfolio of sorts of some machine learning tools.
