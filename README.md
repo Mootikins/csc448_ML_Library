@@ -107,8 +107,8 @@ value of each $w_i$ in following function:
 $$ \hat{y} = w_0 x_0 + w_1 x_1 + \cdots + w_n x_n + b $$
 
 In this context, $n$ is the number of features that affect the output
-variable and the $b$ is much like a $y$ intercept in the tried and true $y = mx
-+ b$.
+variable and the $b$ is much like a $y$ intercept in the tried and true
+$y = mx + b$.
 
 For further cases, we'll call this function $\hat{y}$ or a predictor.
 
