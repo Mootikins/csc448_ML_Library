@@ -49,5 +49,4 @@ if __name__ == "__main__":
     X, y = load_data_iris(0, 1, 'versicolor')
     log_var = []
     weights, bias = linear_regression(X, y, logging=True, log=log_var)
-    print(log_var[0])
     print(weights, bias)

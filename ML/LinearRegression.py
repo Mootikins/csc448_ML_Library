@@ -9,12 +9,13 @@ def linear_regression(X, y, n_iter=500, learning_rate=0.01, logging=False, log=N
     """
     Fit the linear regression for input variable X to output variable y
 
-    :param X: ndarray of floats of shape (num_features, num_data_points)
-    :param y: ndarray of floats of shape (num_data_points, 1)
+    :param X: numpy ndarray of floats of shape (num_features, num_data_points)
+    :param y: numpy ndarray of floats of shape (num_data_points, 1)
     :param n_iter: int, number of iterations to perform given it does not
         correctly approach the bottom
     :param learning_rate: float, should be between 0 and 1. Determines how
-        "aggressive" the weight gradient application is
+        "aggressive" the weight gradient application is. This should generally
+        be below 0.25, but different datasets may require different numbers.
     :param logging: Boolean, defaults to false to not log iterations, setting to
         true requires a list or other type that has `append` defined that will
         mutate the passed variable
