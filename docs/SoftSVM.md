@@ -76,4 +76,14 @@ Like most machine learning problems, we seek to minimize or maximize variables
 in a specific equation. In this case, we try to optimize the distance between
 the separating hyperplane and the points in the separable data.
 
-Now, the equation is pretty ugly, but 
+Now, the equation is pretty ugly, but I'll spare you that. The intuitive idea is
+that if we have a piece of paper and a small ball, no matter where we hold the
+ball above the paper, the shortest distance from the ball to the paper is a line
+(or vector) that is normal (or effectively perpendicular) to the paper and
+pointing towards/away from the ball.
+
+Given that fact, we can iteratively check each point in each classification of
+the dataset and see how far away it is from the separating hyperplane. We then
+use gradient descent (which is briefly explained in [Linear
+Regression](LinearRegression.md)) to slowly tweak the line until the few closest
+samples are the same distance away from the separating line.

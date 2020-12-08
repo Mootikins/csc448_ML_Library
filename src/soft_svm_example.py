@@ -25,7 +25,7 @@ if __name__ == "__main__":
     ax.scatter(X[50:100, 0], X[50:100, 1], color="blue", marker="x", label="versicolor")
     ax.legend()
 
-    classifier = SVM(1000)
+    classifier = SVM()
     classifier.fit(X)
 
     weights = classifier.weights()
