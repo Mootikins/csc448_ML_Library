@@ -32,29 +32,34 @@ from ML.Perceptron import Perceptron
 I am not a snake charmer, so I will apologize in advance for possibly not
 following best or common practices.
 
+There is also a K nearest neighbors implementation written in C in the
+[corresponding submodule](c-omp-k_nn/).
+
 ## The Library Stuff
 
 The library contains the following:
 
-* [X] [Perceptron](src/ML/Perceptron.py) --- [EXAMPLE](src/perceptron_example.py)
-* [X] [Linear Regression](src/ML/LinearRegression.py) --- [EXAMPLE](src/linear_regression_example.py)
-* [ ] [Decision Stumps](src/ML/DecisionStump.py) --- [EXAMPLE](src/decision_stump_example.py)
-* [ ] Another regression model (undecided)
-* [ ] Another low VC-dimension hypothesis class (undecided)
+* [X] [Perceptron](src/ML/Perceptron.py) 
+   * [Example](src/perceptron_example.py)
+   * [Documentation and Theory](docs/Perceptron.md)
+* [X] [Linear Regression](src/ML/LinearRegression.py)
+   * [Example](src/linear_regression_example.py)
+   * [Documentation and Theory](docs/LinearRegression.md)
+* [ ] [Decision Stumps](src/ML/DecisionStump.py)
+   * [Example](src/decision_stump_example.py)
+   * [Documentation and Theory](docs/DecisionStumps.md)
+* [ ] [Soft Support Vector Machine](src/ML/SoftSVM.py)
+   * [Example](src/soft_svm_example.py)
+   * [Documentation and Theory](docs/SoftSVM.md)
+* [ ] [Logistic Regression](src/ML/LogisticRegression.py)
+   * [Example](src/logistic_regression_example.py)
+   * [Documentation and Theory](docs/LogisticRegression.md)
+* [ ] [K Nearest Neighbors](c-omp-k_nn/)
+   * [Example](https://github.com/mootikins/c-omp-k_nn)
+   * [Documentation and Theory](docs/K-NN.md)
 
 While the *library* only requires `numpy` and `pandas`, the examples also use
 `matplotlib`, so it is recommended you use a virtual environment or other method
 of your choice to make sure they are available. It should also go without saying
 that you need python 3 installed. What exact version, I am unsure, but I've been
-using 3.8.
-
-## Module Documentation
-
-Documentation for each individual module can be found in the [`/docs`](docs/)
-folder, with links for each part given here.
-
-* [Perceptron](docs/Perceptron.md)
-* [Linear Regression](docs/LinearRegression.md)
-* [Decision Stumps](docs/DecisionStumps.md)
-* Another regression model (undecided)
-* Another low VC-dimension hypothesis class (undecided)
+using 3.8 and 3.9.

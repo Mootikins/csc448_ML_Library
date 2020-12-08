@@ -1,0 +1,3 @@
+[submodule "c-omp-k_nn"]
+	path = c-omp-k_nn
+	url = https://github.com/mootikins/c-omp-k_nn

@@ -1,7 +1,12 @@
 # What Does a Perceptron Do?
 
 To be honest, I'm still kind of fuzzy on all the math notation, but I'll do my
-best to explain my understanding without it.
+best to explain my understanding without it. Below is an image showing what the
+example plot looks like.
+
+![Perceptron Plot](img/perceptron.png)
+
+## Theory
 
 Let's say we have a bunch of data that describes different features of things we
 wish to categorize into two sets. We as the trainer already know which pieces of

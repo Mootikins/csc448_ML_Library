@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
+import seaborn as sns
+
+sns.set()
+
 from ML.Perceptron import Perceptron
 from ML.Perceptron import plot_decision_regions
 
@@ -30,28 +34,30 @@ def load_data(features, species_1, species_2):
     """
 
     if (
-        all(3 < feature < 0 for feature in features) or \
-        len(features) != len(set(features)) or \
-        species_1 not in ['setosa', 'versicolor', 'virginica'] or \
-        species_2 not in ['setosa', 'versicolor', 'virginica']
+        all(3 < feature < 0 for feature in features)
+        or len(features) != len(set(features))
+        or species_1 not in ["setosa", "versicolor", "virginica"]
+        or species_2 not in ["setosa", "versicolor", "virginica"]
     ):
         print("Check input for `load_data`")
         sys.exit(1)
 
     data_frame = pd.read_csv(
-        'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data',
-        header=None)
+        "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data",
+        header=None,
+    )
 
     row_species_map = {
-        'setosa': data_frame.iloc[:50].values,
-        'versicolor': data_frame.iloc[50:100].values,
-        'virginica': data_frame.iloc[100:].values,
+        "setosa": data_frame.iloc[:50].values,
+        "versicolor": data_frame.iloc[50:100].values,
+        "virginica": data_frame.iloc[100:].values,
     }
 
     result_data = np.concatenate(
-        (row_species_map[species_1], row_species_map[species_2]))
+        (row_species_map[species_1], row_species_map[species_2])
+    )
     y = result_data[:, 4]
-    y = np.where(y == 'Iris-' + species_1, -1, 1)
+    y = np.where(y == "Iris-" + species_1, -1, 1)
 
     X = result_data[:, features]
 
@@ -71,9 +77,7 @@ if __name__ == "__main__":
     # 3 : Petal Width
 
     (X, y) = load_data(
-        [0, 2], # list of features
-        species_1='setosa',
-        species_2='virginica'
+        [0, 2], species_1="setosa", species_2="virginica"  # list of features
     )
 
     PN.fit(X, y)

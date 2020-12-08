@@ -4,6 +4,11 @@ The linear regression model here is a gradient descent, though calling it
 *stochastic* would be disingenuous since there is no randomness here. It has
 also been simplified as much as possible for the sake of understandability.
 
+Here is what the figure in [the example](../src/linear_regression_example.py)
+looks like when you run it.
+
+![linear regression figure](img/linear_regression.png)
+
 ## Usage
 
 Usage in your own applications is pretty easy since this is actually just a
