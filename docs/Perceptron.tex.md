@@ -1,20 +1,3 @@
----
-title: Program 1 - Perceptron
-author: Matthew Krohn
-date: 2020-09-25
-pagestyle: empty
-papersize: letter
-geometry:
-   - margin=0.5in
-header-includes:
-   - \usepackage{}
-   - \hypersetup{colorlinks=true,
-            allbordercolors={0 0 0},
-            pdfborderstyle={/S/U/W 1}}
----
-
-\pagenumbering{gobble}
-
 # What Does a Perceptron Do?
 
 To be honest, I'm still kind of fuzzy on all the math notation, but I'll do my
