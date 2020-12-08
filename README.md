@@ -39,24 +39,27 @@ There is also a K nearest neighbors implementation written in C in the
 
 The library contains the following:
 
-* [X] [Perceptron](src/ML/Perceptron.py) 
+* [Perceptron](src/ML/Perceptron.py) 
    * [Example](src/perceptron_example.py)
    * [Documentation and Theory](docs/Perceptron.md)
-* [X] [Linear Regression](src/ML/LinearRegression.py)
+* [Linear Regression](src/ML/LinearRegression.py)
    * [Example](src/linear_regression_example.py)
    * [Documentation and Theory](docs/LinearRegression.md)
 * [ ] [Decision Stumps](src/ML/DecisionStump.py)
    * [Example](src/decision_stump_example.py)
    * [Documentation and Theory](docs/DecisionStumps.md)
-* [ ] [Soft Support Vector Machine](src/ML/SoftSVM.py)
+* [Soft Support Vector Machine](src/ML/SoftSVM.py)
    * [Example](src/soft_svm_example.py)
    * [Documentation and Theory](docs/SoftSVM.md)
 * [ ] [Logistic Regression](src/ML/LogisticRegression.py)
    * [Example](src/logistic_regression_example.py)
    * [Documentation and Theory](docs/LogisticRegression.md)
-* [ ] [K Nearest Neighbors](c-omp-k_nn/)
+* [K Nearest Neighbors](c-omp-k_nn/)
    * [Example](https://github.com/mootikins/c-omp-k_nn)
    * [Documentation and Theory](docs/K-NN.md)
+   * **NOTE** - As this is a submodule, you will need to clone it either
+     manually or with `git submodule init`. Documentation for it is included in
+     the repo, but the theory has been given here.
 
 While the *library* only requires `numpy` and `pandas`, the examples also use
 `matplotlib`, so it is recommended you use a virtual environment or other method
