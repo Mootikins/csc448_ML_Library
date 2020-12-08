@@ -1,0 +1,51 @@
+import numpy as np
+
+
+class SVM:
+    def __init__(self, epochs=1000, learning_rate=10000, margin=10000):
+        self._learning_rate = 1 / learning_rate
+        self._weights = np.zeros((1, 1))
+        self._epochs = epochs
+        self._margin = margin
+
+    def _cost(self, points):
+        distances = 1 - points[:, -1] * (
+            np.dot(points[:, :-1], self._weights[1:]) + self._weights[0]
+        )
+        distances[distances < 0] = 0
+        loss = self._margin * np.mean(distances)
+
+        return 1 / 2 * np.dot(self._weights, self._weights) + loss
+
+    def _cost_gradient(self, points):
+        distance = 1 - (
+            points[-1] * (np.dot(points[:-1], self._weights[1:]) + self._weights[0])
+        )
+        delta_weights = np.zeros(self._weights.shape).astype(np.float64)
+
+        if distance < 0:
+            delta_weights += self._weights
+        else:
+            delta_weights[1:] += self._weights[1:] - (
+                self._margin * points[-1] * points[:-1]
+            ).astype(np.float64)
+            delta_weights[0] += self._weights[0] - (self._margin * points[-1])
+
+        return delta_weights
+
+    def fit(self, dataset):
+        """
+        Loads the dataset and fits the weights to classify the dataset
+
+        :param dataset List of lists: with each inner list being some number of
+                       real values followed by an integer which is the classifier
+        """
+        self._weights = np.zeros(dataset.shape[1]).astype(np.float64)
+
+        for _ in range(self._epochs):
+            for point in dataset:
+                ascent = self._cost_gradient(point)
+                self._weights = self._weights - (self._learning_rate * ascent)
+
+    def weights(self):
+        return self._weights
