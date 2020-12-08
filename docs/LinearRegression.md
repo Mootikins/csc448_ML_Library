@@ -7,7 +7,9 @@ also been simplified as much as possible for the sake of understandability.
 Here is what the figure in [the example](../src/linear_regression_example.py)
 looks like when you run it.
 
+<center>
 ![linear regression figure](img/linear_regression.png)
+</center>
 
 ## Usage
 

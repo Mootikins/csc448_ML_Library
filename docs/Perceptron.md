@@ -4,7 +4,9 @@ To be honest, I'm still kind of fuzzy on all the math notation, but I'll do my
 best to explain my understanding without it. Below is an image showing what the
 example plot looks like.
 
+<center>
 ![Perceptron Plot](img/perceptron.png)
+</center>
 
 ## Theory
 
