@@ -1,4 +1,4 @@
-# Soft Support Vector Machine
+# Support Vector Machine
 
 A support vector machine is a type of binary classifier (like the
 [perceptron](Perceptron.md)) that tries to minimize the risk of a
@@ -6,7 +6,7 @@ misclassification by means of placing a classifying line (or hyperplane)
 as close to center as possible between the linearly-separable data, like shown
 below.
 
-![soft support vector machine figure](img/soft_svm.png)
+![support vector machine figure](img/svm.png)
 
 You'll notice the shaded area around the fit line, which is the margin. In a
 hard SVM, the margin should contain no data points, but a perfectly separable
@@ -20,7 +20,7 @@ After importing the class, usage is relatively simple, with sensible defaults
 given.
 
 ```py
-from ML.SoftSVM import SVM
+from ML.SVM import SVM
 
 # ...
 
