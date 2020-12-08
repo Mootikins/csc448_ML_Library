@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from ML.SoftSVM import SVM
+from ML.SVM import SVM
 
 
 def load_data():
