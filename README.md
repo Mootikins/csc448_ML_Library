@@ -33,7 +33,9 @@ I am not a snake charmer, so I will apologize in advance for possibly not
 following best or common practices.
 
 There is also a K nearest neighbors implementation written in C in the
-[corresponding submodule](c-omp-k_nn/).
+[corresponding submodule](c-omp-k_nn/). Building it requires OpenMP unless you
+decide to remove the corresponding `#pragma` and the `-fopenmp` flag from the
+`Makefile`.
 
 ## The Library Stuff
 
